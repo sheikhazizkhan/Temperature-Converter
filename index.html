@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+        }
+        #container{
+            text-align: center;
+            background-color: #1abc9c;
+            padding: 50px;
+        }
+        .input-div{
+            display: inline-block;
+        }
+        .inp{
+            padding: 5px 10px;
+            margin: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            width: 250px;
+            text-align: center;
+        }
+        label{
+            font-size: 22px;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div id="container">
+        <div class="input-div">
+            <label>Celsius</label><br>
+            <input type="number" value="0" id="cel" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="fah" class="inp">
+        </div>
+    </div>
+
+    <Script>
+        let Celsius = document.getElementById('cel');   //make variables where you can store the values of celsius. 
+        let Fahrenheit = document.getElementById('fah');   //make variables where you can store the values of fahrenheit.
+
+        // For Celsius Scale
+        // add Input event listener to call the value of input which we entered
+        // Plus one AnonymousFunction to call that input value frequently.
+        Celsius.addEventListener('input', function(){
+            let c = this.value;         //to get value we use value property and store value of Celsius
+
+            let f = (c * 9/5) + 32;     //use formula to convert celsius value in fahrenheit
+
+            if(!Number.isInteger(f)){
+                f = f.toFixed(4);
+            }
+            fah.value = f;      //value property use to get the value from 'f' and store in it
+        });
+
+
+        // For Fahrenheit Scale
+        // add Input event listener to call the value of input which we entered
+        // Plus one AnonymousFunction to call that input value frequently.
+        Fahrenheit.addEventListener('input', function(){
+            let f = this.value;          //to get value we use value property and store value of fahrenheit
+
+            let c = (f - 32) * 5/9;     //use formula to convert fahrenheit value in celsius
+
+            if(!Number.isInteger(c)){
+                c = c.toFixed(4);
+            }
+            cel.value = c;          //value property use to get the value from 'c' and store in it
+        });
+    </Script>
+</body>
+</html>
